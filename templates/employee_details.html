@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ employee.name }} - Employee Details</title>
+</head>
+<body>
+    <h1>{{ employee.name }} - Employee Details</h1>
+
+    <h2>Attendance Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in attendance_entries %}
+                <tr>
+                    <td>{{ entry.date.strftime('%Y-%m-%d') }}</td>
+                    <td>{{ 'Present' if entry.status else 'Absent' }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
