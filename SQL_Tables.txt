@@ -1,0 +1,16 @@
+
+CREATE TABLE employees (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    designation VARCHAR(255),
+    department VARCHAR(255),
+    date_of_joining DATE
+);
+
+CREATE TABLE attendance (
+    employee_id INT,
+    date DATE,
+    status TINYINT(1) DEFAULT 0,
+    PRIMARY KEY (employee_id, date),
+    FOREIGN KEY (employee_id) REFERENCES employees(id)
+);
